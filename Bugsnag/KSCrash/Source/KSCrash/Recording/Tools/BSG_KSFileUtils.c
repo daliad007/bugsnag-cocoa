@@ -86,12 +86,6 @@ bool bsg_ksfuwriteBytesToFD(const int fd, const char *const bytes,
 
 #if TARGET_OS_OSX
 bool bsg_ksfuStatfs(const char *path, uint64_t *free, uint64_t *total) {
-    struct statfs st;
-    if (statfs(path, &st) != 0) {
-        return false;
-    }
-    *free = st.f_bsize * st.f_bavail;
-    *total = st.f_bsize * st.f_blocks;
-    return true;
+    return false;
 }
 #endif
